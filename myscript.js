@@ -1,10 +1,12 @@
 
 
-var buttonaction = document.querySelector("#startaction")
+var buttonaction = document.querySelector("#startaction");
 
-var rowcancel = document.querySelectorAll("td")
+var rowcancel = document.querySelectorAll("td");
 
-var header = document.querySelector("#header")
+var header = document.querySelector("#header");
+
+var switchXO = 0;
 
 buttonaction.addEventListener("click", function(){
 
@@ -18,19 +20,20 @@ buttonaction.addEventListener("click", function(){
 
 
 function checkMaker(){
-  if (this.textContent===''){
+  if (this.textContent === ''){
+    this.textContent = 'O';
+  }
+  else if (this.textContent === 'O') {
     this.textContent = 'X';
   }
-  else if (this.textContent === 'X'){
-    this.textContent = 'O';
-
-  }else{
+  else {
     this.textContent = '';
   }
 }
 
 for (var k=0; k < rowcancel.length;k++){
   rowcancel[k].addEventListener("click", checkMaker);
+
 }
 
 function getRandomColor() {
